@@ -1,1 +1,611 @@
-<h1>web</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youth Community</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* Header styles */
+        header {
+            background-color: #ffffff;
+            padding: 15px 50px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .logo span {
+            color: #ff6b6b;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #ff6b6b;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+        }
+        
+        /* Hero section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/api/placeholder/1920/1080') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding-top: 70px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #ff6b6b;
+            color: white;
+            font-weight: 600;
+            border-radius: 30px;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #ff5252;
+            transform: translateY(-2px);
+        }
+        
+        /* About section */
+        .about {
+            padding: 100px 50px;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: #ff6b6b;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .about p {
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+        
+        /* Programs section */
+        .programs {
+            padding: 100px 50px;
+            background-color: #f1f1f1;
+        }
+        
+        .programs-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .program-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .program-img {
+            height: 200px;
+            width: 100%;
+            background-color: #ddd;
+            background-image: url('/api/placeholder/300/200');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .program-content {
+            padding: 20px;
+        }
+        
+        .program-content h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        
+        .program-content p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+        
+        /* Events section */
+        .events {
+            padding: 100px 50px;
+        }
+        
+        .events-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .events-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .event-item {
+            margin-bottom: 40px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+        }
+        
+        .event-date {
+            background-color: #ff6b6b;
+            color: white;
+            min-width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+        }
+        
+        .event-date .day {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .event-date .month {
+            font-size: 14px;
+        }
+        
+        .event-info h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .event-info p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .event-info .event-location {
+            display: flex;
+            align-items: center;
+            color: #999;
+            font-size: 14px;
+        }
+        
+        /* Contact section */
+        .contact {
+            padding: 100px 50px;
+            background-color: #f1f1f1;
+        }
+        
+        .contact-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .contact-info h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-item i {
+            margin-right: 10px;
+            color: #ff6b6b;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #ff6b6b;
+            color: white;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: #ff5252;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 30px 50px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo span {
+            color: #ff6b6b;
+        }
+        
+        .footer-links {
+            display: flex;
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links li {
+            margin: 0 15px;
+        }
+        
+        .footer-links li a:hover {
+            color: #ff6b6b;
+        }
+        
+        .copyright {
+            color: #999;
+            font-size: 14px;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .about, .programs, .events, .contact {
+                padding: 80px 20px;
+            }
+            
+            .event-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .event-date {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">YOUTH<span>COMMUNITY</span></div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="mobile-menu">☰</div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>EMPOWERING YOUTH TO SHAPE THE FUTURE</h1>
+            <p>Join our community of young leaders, innovators, and change-makers committed to making a positive impact in society.</p>
+            <a href="#programs" class="btn">Explore Our Programs</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2 class="section-title">About Us</h2>
+        <div class="about-content">
+            <p>Youth Community is a dynamic organization dedicated to empowering young people through meaningful engagement, skills development, and community service. We believe in the power of youth to create positive change in society.</p>
+            <p>Since our founding in 2015, we have worked with over 10,000 young individuals, helping them discover their potential and become responsible, compassionate, and innovative leaders in their communities.</p>
+            <a href="#contact" class="btn">Join Us Today</a>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs" id="programs">
+        <div class="programs-title">
+            <h2 class="section-title">Our Programs</h2>
+        </div>
+        <div class="programs-grid">
+            <div class="program-card">
+                <div class="program-img" style="background-image: url('/api/placeholder/300/200')"></div>
+                <div class="program-content">
+                    <h3>Leadership Development</h3>
+                    <p>Equipping young people with the skills, knowledge, and confidence to lead effectively in various contexts.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </div>
+            <div class="program-card">
+                <div class="program-img" style="background-image: url('/api/placeholder/300/200')"></div>
+                <div class="program-content">
+                    <h3>Social Innovation</h3>
+                    <p>Fostering creative thinking and problem-solving to address pressing social challenges in our communities.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </div>
+            <div class="program-card">
+                <div class="program-img" style="background-image: url('/api/placeholder/300/200')"></div>
+                <div class="program-content">
+                    <h3>Global Citizenship</h3>
+                    <p>Developing awareness and responsibility toward global issues and promoting cross-cultural understanding.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events" id="events">
+        <div class="events-title">
+            <h2 class="section-title">Upcoming Events</h2>
+        </div>
+        <div class="events-list">
+            <div class="event-item">
+                <div class="event-date">
+                    <div class="day">15</div>
+                    <div class="month">APR</div>
+                </div>
+                <div class="event-info">
+                    <h3>Youth Leadership Summit 2025</h3>
+                    <p>A day-long event featuring workshops, panel discussions, and networking opportunities for young leaders.</p>
+                    <div class="event-location">
+                        <span>City Conference Center, 10:00 AM</span>
+                    </div>
+                </div>
+            </div>
+            <div class="event-item">
+                <div class="event-date">
+                    <div class="day">22</div>
+                    <div class="month">APR</div>
+                </div>
+                <div class="event-info">
+                    <h3>Community Service Day</h3>
+                    <p>Join us for a day of giving back to the community through various service projects around the city.</p>
+                    <div class="event-location">
+                        <span>Multiple Locations, 9:00 AM</span>
+                    </div>
+                </div>
+            </div>
+            <div class="event-item">
+                <div class="event-date">
+                    <div class="day">05</div>
+                    <div class="month">MAY</div>
+                </div>
+                <div class="event-info">
+                    <h3>Innovation Workshop Series</h3>
+                    <p>A series of workshops focusing on creative problem-solving and design thinking for social impact.</p>
+                    <div class="event-location">
+                        <span>Innovation Hub, 2:00 PM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-title">
+            <h2 class="section-title">Get In Touch</h2>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i>📍</i>
+                        <span>123 Youth Street, City Center</span>
+                    </div>
+                    <div class="contact-item">
+                        <i>📞</i>
+                        <span>+1 234 567 8900</span>
+                    </div>
+                    <div class="contact-item">
+                        <i>✉️</i>
+                        <span>info@youthcommunity.org</span>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="#">FB</a>
+                    <a href="#">TW</a>
+                    <a href="#">IG</a>
+                    <a href="#">YT</a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form>
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <input type="text" placeholder="Subject">
+                    <textarea placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">YOUTH<span>COMMUNITY</span></div>
+            <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="copyright">
+                &copy; 2025 Youth Community. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const nav = document.querySelector('nav');
+            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
