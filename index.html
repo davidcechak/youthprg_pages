@@ -3,608 +3,628 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Youth Community</title>
+    <title>YOUTH PRG - Youth PRG</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2596be',
+                        secondary: '#2596be',
+                        accent: '#f97316'
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        /* Reset and base styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         body {
-            background-color: #f8f8f8;
-            color: #333;
-            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
         }
-        
-        a {
-            text-decoration: none;
-            color: inherit;
+        .hero-pattern {
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('https://youthbcn.com/wp-content/uploads/2020/03/Youth-BCN-Sin-fondo-grande.png');
+            background-color: #2596be;
+            background-size: contain, contain;
+            background-position: center, center;
+            background-repeat: no-repeat, no-repeat;
         }
-        
-        /* Header styles */
-        header {
-            background-color: #ffffff;
-            padding: 15px 50px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .instagram-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 15px;
         }
-        
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            letter-spacing: 1px;
+        .instagram-card:hover .instagram-overlay {
+            opacity: 1;
         }
-        
-        .logo span {
-            color: #ff6b6b;
+        .instagram-overlay {
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
+        .dropdown:hover .dropdown-menu {
+            display: block;
         }
-        
-        nav ul li {
-            margin-left: 30px;
-        }
-        
-        nav ul li a {
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            color: #ff6b6b;
-        }
-        
         .mobile-menu {
-            display: none;
-            font-size: 24px;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
         }
-        
-        /* Hero section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/api/placeholder/1920/1080') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding-top: 70px;
+        .mobile-menu.active {
+            transform: translateX(0);
         }
-        
-        .hero-content {
-            max-width: 800px;
-            padding: 0 20px;
+        .experience-card {
+            transition: transform 0.3s ease;
         }
-        
-        .hero h1 {
-            font-size: 48px;
-            font-weight: 800;
-            margin-bottom: 20px;
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
-        
-        .hero p {
-            font-size: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: #ff6b6b;
-            color: white;
-            font-weight: 600;
-            border-radius: 30px;
-            transition: all 0.3s;
-        }
-        
-        .btn:hover {
-            background-color: #ff5252;
-            transform: translateY(-2px);
-        }
-        
-        /* About section */
-        .about {
-            padding: 100px 50px;
-            text-align: center;
-        }
-        
-        .section-title {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-title:after {
-            content: '';
-            position: absolute;
-            width: 50px;
-            height: 3px;
-            background-color: #ff6b6b;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .about p {
-            margin-bottom: 30px;
-            font-size: 18px;
-        }
-        
-        /* Programs section */
-        .programs {
-            padding: 100px 50px;
-            background-color: #f1f1f1;
-        }
-        
-        .programs-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .programs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .program-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        
-        .program-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .program-img {
-            height: 200px;
-            width: 100%;
-            background-color: #ddd;
-            background-image: url('/api/placeholder/300/200');
-            background-size: cover;
+        .parallax {
+            background-attachment: fixed;
             background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
-        
-        .program-content {
-            padding: 20px;
-        }
-        
-        .program-content h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
-        }
-        
-        .program-content p {
-            margin-bottom: 20px;
-            color: #666;
-        }
-        
-        /* Events section */
-        .events {
-            padding: 100px 50px;
-        }
-        
-        .events-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .events-list {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .event-item {
-            margin-bottom: 40px;
-            background-color: white;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            display: flex;
-            align-items: center;
-        }
-        
-        .event-date {
-            background-color: #ff6b6b;
-            color: white;
-            min-width: 80px;
-            height: 80px;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-right: 20px;
-        }
-        
-        .event-date .day {
-            font-size: 24px;
-            font-weight: 700;
-        }
-        
-        .event-date .month {
-            font-size: 14px;
-        }
-        
-        .event-info h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-        
-        .event-info p {
-            color: #666;
-            margin-bottom: 10px;
-        }
-        
-        .event-info .event-location {
-            display: flex;
-            align-items: center;
-            color: #999;
-            font-size: 14px;
-        }
-        
-        /* Contact section */
-        .contact {
-            padding: 100px 50px;
-            background-color: #f1f1f1;
-        }
-        
-        .contact-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 50px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .contact-info h3 {
-            font-size: 22px;
-            margin-bottom: 20px;
-        }
-        
-        .contact-details {
-            margin-bottom: 30px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .contact-item i {
-            margin-right: 10px;
-            color: #ff6b6b;
-        }
-        
-        .social-links a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background-color: #ff6b6b;
-            color: white;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 10px;
-            transition: background-color 0.3s;
-        }
-        
-        .social-links a:hover {
-            background-color: #ff5252;
-        }
-        
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        
-        .contact-form textarea {
-            height: 150px;
-            resize: vertical;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: #222;
-            color: white;
-            padding: 30px 50px;
-            text-align: center;
-        }
-        
-        .footer-content {
-            max-width: 800px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .footer-logo {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-        
-        .footer-logo span {
-            color: #ff6b6b;
-        }
-        
-        .footer-links {
-            display: flex;
-            list-style: none;
-            margin-bottom: 20px;
-        }
-        
-        .footer-links li {
-            margin: 0 15px;
-        }
-        
-        .footer-links li a:hover {
-            color: #ff6b6b;
-        }
-        
-        .copyright {
-            color: #999;
-            font-size: 14px;
-        }
-        
-        /* Responsive styles */
-        @media (max-width: 768px) {
-            header {
-                padding: 15px 20px;
-            }
-            
-            nav {
-                display: none;
-            }
-            
-            .mobile-menu {
-                display: block;
-            }
-            
-            .hero h1 {
-                font-size: 36px;
-            }
-            
-            .about, .programs, .events, .contact {
-                padding: 80px 20px;
-            }
-            
-            .event-item {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .event-date {
-                margin-right: 0;
-                margin-bottom: 15px;
-            }
+        .gradient-text {
+            background: linear-gradient(90deg, #0ea5e9, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Skip to content link -->
+    <a href="#content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:bg-white focus:px-4 focus:py-2 focus:z-50 focus:rounded-full">Skip to content</a>
+
     <!-- Header -->
-    <header>
-        <div class="logo">YOUTH<span>COMMUNITY</span></div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#programs">Programs</a></li>
-                <li><a href="#events">Events</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="mobile-menu">☰</div>
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4">
+            <!-- Top bar with languages and contact -->
+            <div class="flex justify-between items-center py-2">
+                <div class="flex items-center space-x-3">
+                    <a href="https://youthbcn.com/es/" class="hover:opacity-75 transition-opacity">
+                        <img src="https://youthbcn.com/wp-content/plugins/translatepress-multilingual/assets/images/flags/es_ES.png" alt="Spanish" class="w-6 h-auto">
+                    </a>
+                    <a href="https://youthbcn.com/" class="hover:opacity-75 transition-opacity">
+                        <img src="https://youthbcn.com/wp-content/plugins/translatepress-multilingual/assets/images/flags/en_GB.png" alt="English" class="w-6 h-auto">
+                    </a>
+                </div>
+                
+                <a href="http://linktr.ee/youthbcn" class="hidden md:block bg-primary hover:bg-[#1c7595] text-white font-medium py-2 px-4 rounded-full transition-colors">
+                    Apply to our Projects
+                </a>
+            </div>
+
+            <!-- Main navigation -->
+            <nav class="flex items-center justify-between py-4">
+                <!-- Logo -->
+                <a href="https://youthbcn.com/" class="flex items-center">
+                    <img src="https://youthbcn.com/wp-content/uploads/2020/03/Youth-BCN-Sin-fondo-grande.png" alt="Youth PRG Logo" class="h-12 md:h-16">
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <div class="relative dropdown">
+                        <a href="https://linktr.ee/youthbcn" class="text-lg font-medium hover:text-primary transition-colors">Opportunities</a>
+                    </div>
+                    <a href="https://youthbcn.com/experiences/" class="text-lg font-medium hover:text-primary transition-colors">Experiences</a>
+                    
+                    <div class="relative dropdown">
+                        <a href="#" class="text-lg font-medium hover:text-primary transition-colors flex items-center">
+                            Projects <i class="fas fa-chevron-down ml-1 text-sm"></i>
+                        </a>
+                        <div class="dropdown-menu absolute hidden mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+                            <a href="https://youthbcn.com/our-projects/" class="block px-4 py-2 hover:bg-gray-100">Our Projects</a>
+                            <a href="https://youthbcn.com/our-projects/erasmus-projects/" class="block px-4 py-2 hover:bg-gray-100">Erasmus+ Projects</a>
+                            <a href="https://youthbcn.com/our-projects/esc-projects/" class="block px-4 py-2 hover:bg-gray-100">ESC Projects</a>
+                        </div>
+                    </div>
+                    
+                    <div class="relative dropdown">
+                        <a href="#" class="text-lg font-medium hover:text-primary transition-colors flex items-center">
+                            About <i class="fas fa-chevron-down ml-1 text-sm"></i>
+                        </a>
+                        <div class="dropdown-menu absolute hidden mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+                            <a href="https://youthbcn.com/about-us/" class="block px-4 py-2 hover:bg-gray-100">Youth BCN</a>
+                            <a href="https://youthbcn.com/youth-hub/" class="block px-4 py-2 hover:bg-gray-100">Youth Hub</a>
+                        </div>
+                    </div>
+                    
+                    <a href="https://youthbcn.com/contact/" class="text-lg font-medium hover:text-primary transition-colors">Contact</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </nav>
+        </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>EMPOWERING YOUTH TO SHAPE THE FUTURE</h1>
-            <p>Join our community of young leaders, innovators, and change-makers committed to making a positive impact in society.</p>
-            <a href="#programs" class="btn">Explore Our Programs</a>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="mobile-menu fixed inset-y-0 right-0 w-80 bg-white z-50 p-6 shadow-2xl overflow-y-auto">
+        <div class="flex justify-between items-center mb-8">
+            <img src="https://youthbcn.com/wp-content/uploads/2020/03/Youth-BCN-Sin-fondo-grande.png" alt="Youth PRG Logo" class="h-10">
+            <button id="mobile-close-btn" class="text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
         </div>
-    </section>
+        
+        <div class="space-y-4">
+            <a href="https://linktr.ee/youthbcn" class="block text-lg font-medium py-2 hover:text-primary">Opportunities</a>
+            <a href="https://youthbcn.com/experiences/" class="block text-lg font-medium py-2 hover:text-primary">Experiences</a>
+            
+            <div class="mb-2">
+                <a href="#" class="block text-lg font-medium py-2 hover:text-primary flex justify-between items-center">
+                    Projects <i class="fas fa-chevron-down"></i>
+                </a>
+                <div class="pl-4 mt-2 space-y-2">
+                    <a href="https://youthbcn.com/our-projects/" class="block hover:text-primary">Our Projects</a>
+                    <a href="https://youthbcn.com/our-projects/erasmus-projects/" class="block hover:text-primary">Erasmus+ Projects</a>
+                    <a href="https://youthbcn.com/our-projects/esc-projects/" class="block hover:text-primary">ESC Projects</a>
+                </div>
+            </div>
+            
+            <div class="mb-2">
+                <a href="#" class="block text-lg font-medium py-2 hover:text-primary flex justify-between items-center">
+                    About <i class="fas fa-chevron-down"></i>
+                </a>
+                <div class="pl-4 mt-2 space-y-2">
+                    <a href="https://youthbcn.com/about-us/" class="block hover:text-primary">Youth BCN</a>
+                    <a href="https://youthbcn.com/youth-hub/" class="block hover:text-primary">Youth Hub</a>
+                </div>
+            </div>
+            
+            <a href="https://youthbcn.com/contact/" class="block text-lg font-medium py-2 hover:text-primary">Contact</a>
+            
+            <div class="pt-4 flex items-center space-x-3">
+                <a href="https://youthbcn.com/es/" class="hover:opacity-75 transition-opacity">
+                    <img src="https://youthbcn.com/wp-content/plugins/translatepress-multilingual/assets/images/flags/es_ES.png" alt="Spanish" class="w-6 h-auto">
+                </a>
+                <a href="https://youthbcn.com/" class="hover:opacity-75 transition-opacity">
+                    <img src="https://youthbcn.com/wp-content/plugins/translatepress-multilingual/assets/images/flags/en_GB.png" alt="English" class="w-6 h-auto">
+                </a>
+            </div>
+            
+            <a href="http://linktr.ee/youthbcn" class="mt-4 block w-full bg-primary hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-full text-center transition-colors">
+                Apply to our Projects
+            </a>
+        </div>
+    </div>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <h2 class="section-title">About Us</h2>
-        <div class="about-content">
-            <p>Youth Community is a dynamic organization dedicated to empowering young people through meaningful engagement, skills development, and community service. We believe in the power of youth to create positive change in society.</p>
-            <p>Since our founding in 2015, we have worked with over 10,000 young individuals, helping them discover their potential and become responsible, compassionate, and innovative leaders in their communities.</p>
-            <a href="#contact" class="btn">Join Us Today</a>
-        </div>
-    </section>
+    <!-- Main Content -->
+    <main id="content">
+        <!-- Hero Section -->
+        <section class="relative py-20 md:py-32 overflow-hidden bg-gray-900 text-white hero-pattern">
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="max-w-3xl text-center mx-auto">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        <span class="gradient-text">from barcelona to the world</span>
+                    </h1>
+                    <div class="w-24 h-1 bg-gradient-to-r from-primary to-orange-500 mx-auto mb-8"></div>
+                    
+                    <p class="text-xl mb-10 max-w-2xl mx-auto">
+                        Youth PRG enables people to have access to international opportunities and European funds.
+                    </p>
+                    
+                    <div class="flex flex-wrap justify-center gap-6 mb-10">
+                        <img src="https://youthbcn.com/wp-content/uploads/2024/01/en_esc-label_karbon-768x768.png" alt="ESC Label" class="h-20 w-auto object-contain">
+                        <img src="https://youthbcn.com/wp-content/uploads/2024/01/erasmus-accreditation-logo-300x300.png" alt="Erasmus Accreditation" class="h-20 w-auto object-contain">
+                    </div>
+                    
+                    <a href="https://linktr.ee/youthbcn" class="inline-block bg-accent hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-full text-lg transition-colors transform hover:scale-105">
+                        See the open opportunities
+                    </a>
+                </div>
+            </div>
+        </section>
 
-    <!-- Programs Section -->
-    <section class="programs" id="programs">
-        <div class="programs-title">
-            <h2 class="section-title">Our Programs</h2>
-        </div>
-        <div class="programs-grid">
-            <div class="program-card">
-                <div class="program-img" style="background-image: url('/api/placeholder/300/200')"></div>
-                <div class="program-content">
-                    <h3>Leadership Development</h3>
-                    <p>Equipping young people with the skills, knowledge, and confidence to lead effectively in various contexts.</p>
-                    <a href="#" class="btn">Learn More</a>
+        <!-- Mission Section -->
+        <section class="py-20 bg-gradient-to-r from-blue-50 to-cyan-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">We enable people to have access to international opportunities and European funds.</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">This is what we do.</p>
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-8">
+                    <a href="https://youthbcn.com/erasmus-projects/" class="flex flex-col items-center group">
+                        <img src="https://youthbcn.com/wp-content/uploads/2021/12/1280px-Erasmus_Logo.svg-1024x294.png" alt="Erasmus+" class="h-20 w-auto object-contain mb-4">
+                        <h3 class="text-xl font-semibold group-hover:text-primary transition-colors">Erasmus+</h3>
+                    </a>
+                    
+                    <a href="https://youthbcn.com/erasmus-projects/" class="flex flex-col items-center group">
+                        <img src="https://youthbcn.com/wp-content/uploads/2021/12/esc-logo-en.png" alt="ESC" class="h-20 w-auto object-contain mb-4">
+                        <h3 class="text-xl font-semibold group-hover:text-primary transition-colors">ESC Projects</h3>
+                    </a>
+                    
+                    <a href="https://youthbcn.com/erasmus-projects/" class="flex flex-col items-center group">
+                        <img src="https://youthbcn.com/wp-content/uploads/2024/01/LOGO-1024x338.jpg" alt="Other Projects" class="h-20 w-auto object-contain mb-4">
+                        <h3 class="text-xl font-semibold group-hover:text-primary transition-colors">Other Projects</h3>
+                    </a>
                 </div>
             </div>
-            <div class="program-card">
-                <div class="program-img" style="background-image: url('/api/placeholder/300/200')"></div>
-                <div class="program-content">
-                    <h3>Social Innovation</h3>
-                    <p>Fostering creative thinking and problem-solving to address pressing social challenges in our communities.</p>
-                    <a href="#" class="btn">Learn More</a>
-                </div>
-            </div>
-            <div class="program-card">
-                <div class="program-img" style="background-image: url('/api/placeholder/300/200')"></div>
-                <div class="program-content">
-                    <h3>Global Citizenship</h3>
-                    <p>Developing awareness and responsibility toward global issues and promoting cross-cultural understanding.</p>
-                    <a href="#" class="btn">Learn More</a>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Events Section -->
-    <section class="events" id="events">
-        <div class="events-title">
-            <h2 class="section-title">Upcoming Events</h2>
-        </div>
-        <div class="events-list">
-            <div class="event-item">
-                <div class="event-date">
-                    <div class="day">15</div>
-                    <div class="month">APR</div>
+        <!-- Experiences Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">The experiences</h2>
+                    <div class="w-20 h-1 bg-gradient-to-r from-primary to-orange-500 mx-auto"></div>
                 </div>
-                <div class="event-info">
-                    <h3>Youth Leadership Summit 2025</h3>
-                    <p>A day-long event featuring workshops, panel discussions, and networking opportunities for young leaders.</p>
-                    <div class="event-location">
-                        <span>City Conference Center, 10:00 AM</span>
-                    </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Experience 1 -->
+                    <a href="https://youthbcn.com/2025/10/29/youth-exchange-younited/" class="experience-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl">
+                        <img src="https://youthbcn.com/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-29-at-12.56.27.jpeg" alt="Youth exchange – Younited" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3">Youth exchange – Younited</h3>
+                            <p class="text-gray-600 mb-4">Hoy os traemos la experiencia de nuestros participantes en el intercambio juvenil «YOUnited» implementado en Giovinazzo, Italia. El pasado mes…</p>
+                            <span class="text-primary font-medium">Read more →</span>
+                        </div>
+                    </a>
+                    
+                    <!-- Experience 2 -->
+                    <a href="https://youthbcn.com/2025/10/22/experiencia-voluntariado-europeo-de-denis-en-almvik-suecia/" class="experience-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl">
+                        <img src="https://youthbcn.com/wp-content/uploads/2025/10/dogeuira.png" alt="Experiéncia voluntariado europeo de Denis en almvik, suecia" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3">Experiéncia voluntariado europeo de Denis en almvik, suecia</h3>
+                            <p class="text-gray-600 mb-4">Hoy os traemos la experiencia de Denis, que está haciendo su voluntariado del Cuerpo Europeo de Solidaridad (ESC) en almvik,…</p>
+                            <span class="text-primary font-medium">Read more →</span>
+                        </div>
+                    </a>
+                    
+                    <!-- Experience 3 -->
+                    <a href="https://youthbcn.com/2025/10/17/youth-exchange-empires/" class="experience-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl">
+                        <img src="https://youthbcn.com/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-07-at-20.28.53.jpeg" alt="Youth exchange – Empires" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3">Youth exchange – Empires</h3>
+                            <p class="text-gray-600 mb-4">Hoy os traemos la experiencia de nuestros participantes en el intercambio juvenil «Empires» implementado en Veli Lošinj, Croácia. Este Youth…</p>
+                            <span class="text-primary font-medium">Read more →</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <a href="https://youthbcn.com/experiences/" class="inline-block bg-primary hover:bg-[#1c7595] text-white font-bold py-3 px-8 rounded-full transition-colors">
+                        Read all the experiences
+                    </a>
                 </div>
             </div>
-            <div class="event-item">
-                <div class="event-date">
-                    <div class="day">22</div>
-                    <div class="month">APR</div>
-                </div>
-                <div class="event-info">
-                    <h3>Community Service Day</h3>
-                    <p>Join us for a day of giving back to the community through various service projects around the city.</p>
-                    <div class="event-location">
-                        <span>Multiple Locations, 9:00 AM</span>
-                    </div>
-                </div>
-            </div>
-            <div class="event-item">
-                <div class="event-date">
-                    <div class="day">05</div>
-                    <div class="month">MAY</div>
-                </div>
-                <div class="event-info">
-                    <h3>Innovation Workshop Series</h3>
-                    <p>A series of workshops focusing on creative problem-solving and design thinking for social impact.</p>
-                    <div class="event-location">
-                        <span>Innovation Hub, 2:00 PM</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="contact-title">
-            <h2 class="section-title">Get In Touch</h2>
-        </div>
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3>Contact Information</h3>
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <i>📍</i>
-                        <span>123 Youth Street, City Center</span>
-                    </div>
-                    <div class="contact-item">
-                        <i>📞</i>
-                        <span>+1 234 567 8900</span>
-                    </div>
-                    <div class="contact-item">
-                        <i>✉️</i>
-                        <span>info@youthcommunity.org</span>
+        <!-- Instagram Section -->
+        <section class="py-20 bg-gradient-to-br from-cyan-50 to-blue-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Follow us</h2>
+                    <p class="text-xl text-gray-600">Stay updated with our latest opportunities and events</p>
+                    <div class="flex justify-center mt-4">
+                        <a href="https://www.instagram.com/youthprg_official/" class="text-2xl text-pink-600 hover:text-pink-700 mx-2">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="http://facebook.com/youthbcn" class="text-2xl text-primary hover:text-[#1c7595] mx-2">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@youthbcn/videos" class="text-2xl text-red-600 hover:text-red-700 mx-2">
+                            <i class="fab fa-youtube"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="social-links">
-                    <a href="#">FB</a>
-                    <a href="#">TW</a>
-                    <a href="#">IG</a>
-                    <a href="#">YT</a>
+                
+                <div class="instagram-grid">
+                    <!-- Instagram post 1 -->
+                    <a href="https://www.instagram.com/p/DKWmybFNDoz/" class="instagram-card relative block rounded-xl overflow-hidden">
+                        <img src="https://scontent.cdninstagram.com/v/t51.75761-15/503101023_17939543961007672_3755547743675426560_n.jpg?stp=dst-jpegr_e35_tt6&_nc_cat=106&ig_cache_key=MzY0NTI3MTUyODcwMzQ2NDUyMg%3D%3D.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTA3OS5oZHIuQzMifQ%3D%3D&_nc_ohc=PlCAcxRNjrkQ7kNvwEvpqo2&_nc_oc=AdlHCRuJYomgTQaAEjmThxNpRgmY3qHFjqhwvckhjA4qQE2UwkRf451wmk6jOyM1EX0&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=kuEgxw9IMGfDHh1shoKFfg&oh=00_AfdjiJi-vx4L2h95klW7malBLMs62cHo7loGXET0b1kGHw&oe=690BAD7A" alt="Instagram post" class="w-full h-64 object-cover">
+                        <div class="instagram-overlay absolute inset-0 bg-black/50 flex items-center justify-center">
+                            <i class="fab fa-instagram text-white text-3xl"></i>
+                        </div>
+                    </a>
+                    
+                    <!-- Instagram post 2 -->
+                    <a href="https://www.instagram.com/p/DQW8RwbDOhF/" class="instagram-card relative block rounded-xl overflow-hidden">
+                        <img src="https://scontent.cdninstagram.com/v/t51.82787-15/573680549_17955882114007672_1139903972819920169_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ig_cache_key=Mzc1MzQ1MjQzMzExMzQxMTMyNQ%3D%3D.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjkwMHgxMjAwLnNkci5DMyJ9&_nc_ohc=O0sqcjD1l9MQ7kNvwGO-4_k&_nc_oc=AdnWlDO2FqqtLa4XxpJSEBlMXBlb4SFwT7myXDfvOJW2DCRJWb2qs1W-c2Ilmb6a7mg&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=kuEgxw9IMGfDHh1shoKFfg&oh=00_Aff4QGkiEPgLmbVjUXG38Vj8fk2EZEHfCpCANjov9bwrdg&oe=690BAE79" alt="Instagram post" class="w-full h-64 object-cover">
+                        <div class="instagram-overlay absolute inset-0 bg-black/50 flex items-center justify-center">
+                            <i class="fab fa-instagram text-white text-3xl"></i>
+                        </div>
+                    </a>
+                    
+                    <!-- Instagram post 3 -->
+                    <a href="https://www.instagram.com/p/DPdilXQjHBl" class="instagram-card relative block rounded-xl overflow-hidden">
+                        <img src="https://scontent.cdninstagram.com/v/t51.82787-15/560037108_17953683249007672_3454272799155399078_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ig_cache_key=MzczNzI5NTM2MDQwMzIyNDE5Mg%3D%3D.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEwNzN4MTQzMC5zZHIuQzMifQ%3D%3D&_nc_ohc=CJGRONW48tEQ7kNvwE8vTmg&_nc_oc=AdkLE5v6wcWtcdx4VuSUBwzvUav39EAMWh-IY6DO-Uz9dPmlHllzyqqWFs8PV00YjCQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=kuEgxw9IMGfDHh1shoKFfg&oh=00_AfcSCMu7KcRNAyqZrgtZXEJmyorg7fnIIiTA33deqeT8cQ&oe=690BA4CF" alt="Instagram post" class="w-full h-64 object-cover">
+                        <div class="instagram-overlay absolute inset-0 bg-black/50 flex items-center justify-center">
+                            <i class="fab fa-instagram text-white text-3xl"></i>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="text-center mt-10">
+                    <a href="https://www.instagram.com/youthprg_official/" class="inline-block bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-bold py-3 px-8 rounded-full transition-all transform hover:scale-105">
+                        Follow Youth BCN
+                    </a>
                 </div>
             </div>
-            <div class="contact-form">
-                <form>
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <input type="text" placeholder="Subject">
-                    <textarea placeholder="Your Message" required></textarea>
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
+        </section>
+
+        <!-- About Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">More about us</h2>
+                    <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-orange-500 mx-auto"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center p-6 bg-blue-50 rounded-xl">
+                        <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-globe-europe text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Our PROJECTS</h3>
+                        <p class="text-gray-600">We design, create and implement international projects of youth mobility & entrepreneurship.</p>
+                    </div>
+                    
+                    <div class="text-center p-6 bg-orange-50 rounded-xl">
+                        <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-users text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">About Us</h3>
+                        <p class="text-gray-600">Since 2017, Youth PRG has been working to provide international experiences for people.</p>
+                    </div>
+                    
+                    <div class="text-center p-6 bg-cyan-50 rounded-xl">
+                        <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-hands-helping text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Get Involved</h3>
+                        <p class="text-gray-600">Join us and take part in self-growing experiences. Be part of the change we need!</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Advisory Section -->
+        <section class="py-20 bg-[#2596be] text-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Advisory & consultancy</h2>
+                    <p class="text-xl max-w-3xl mx-auto">We provide as well advisory and consultancy services related with European funds & Entrepreneurship.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-graduation-cap text-3xl mr-4 text-cyan-300"></i>
+                            <h3 class="text-xl font-bold">Erasmus+</h3>
+                        </div>
+                        <p>We have experience in designing, creating and implementing youth mobility projects inside KA1 & KA2.</p>
+                    </div>
+                    
+                    <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-euro-sign text-3xl mr-4 text-cyan-300"></i>
+                            <h3 class="text-xl font-bold">OTHER EUROPEAN FUNDS</h3>
+                        </div>
+                        <p>We are also experienced in Erasmus internship, Erasmus for Young Entrepreneurs (EYE) & more.</p>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-10">
+                    <a href="#form" class="inline-block bg-white text-blue-900 hover:bg-gray-100 font-bold py-3 px-8 rounded-full transition-colors">
+                        Contact us for more info
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Get Involved Section -->
+        <section class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Get involved</h2>
+                    <h3 class="text-2xl text-primary">how we can help you</h3>
+                    <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-orange-500 mx-auto mt-4"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-search text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">search for a project</h3>
+                        <p class="text-gray-600 mb-6">We are constantly looking for youngsters & youth workers to get involved in the projects that Youth BCN is a partner.</p>
+                        <a href="#form" class="inline-block bg-primary hover:bg-[#1c7595] text-white font-medium py-2 px-6 rounded-full transition-colors">
+                            Start searching
+                        </a>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                        <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-hands-helping text-orange-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Get help of professionals</h3>
+                        <p class="text-gray-600 mb-6">We can give you a hand if you want to apply for European funds. We provide advisory & consultancy services.</p>
+                        <a href="#form" class="inline-block bg-accent hover:bg-orange-600 text-white font-medium py-2 px-6 rounded-full transition-colors">
+                            Ask for help
+                        </a>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                        <div class="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-handshake text-cyan-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Join our Efforts</h3>
+                        <p class="text-gray-600 mb-6">Do you want to volunteer, make an internship or other possible cooperation with Youth PRG? Help us to make a better community!</p>
+                        <a href="#form" class="inline-block bg-secondary hover:bg-[#1c7595] text-white font-medium py-2 px-6 rounded-full transition-colors">
+                            Join us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="form" class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 shadow-lg">
+                    <div class="text-center mb-10">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Stay in touch</h2>
+                        <p class="text-xl text-gray-600">Send us your request or proposal and our team will respond as soon as possible.</p>
+                    </div>
+                    
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block mb-2 font-medium">Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div>
+                                <label for="email" class="block mb-2 font-medium">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block mb-2 font-medium">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block mb-2 font-medium">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                        </div>
+                        
+                        <div class="text-center">
+                            <button type="submit" class="bg-primary hover:bg-[#1c7595] text-white font-bold py-4 px-8 rounded-full text-lg transition-colors">
+                                SEND
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">YOUTH<span>COMMUNITY</span></div>
-            <ul class="footer-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#programs">Programs</a></li>
-                <li><a href="#events">Events</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="copyright">
-                &copy; 2025 Youth Community. All rights reserved.
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <a href="http://youthbcn.com/" class="mb-6 inline-block">
+                        <img src="https://youthbcn.com/wp-content/uploads/2024/02/Youth-bcn-White-1-e1709037168450-1024x723.png" alt="Youth BCN" class="h-16">
+                    </a>
+                    <div class="flex space-x-4 mb-6">
+                        <a href="http://facebook.com/youthbcn" class="text-gray-300 hover:text-white">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="http://instagram.com/youthbcn_official/" class="text-gray-300 hover:text-white">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@youthbcn/videos" class="text-gray-300 hover:text-white">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                    </div>
+                    <h3 class="text-lg font-medium mb-4">get the latest news</h3>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6 pb-2 border-b border-gray-700">Contact</h3>
+                    <ul class="space-y-4">
+                        <li class="flex">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-primary"></i>
+                            <a href="https://maps.app.goo.gl/qaT6cQrmyUP9LFtp6" class="hover:text-primary transition-colors">
+                                C/ de la Selva de Mar, 249, bajos 2º, Sant Martí, Barcelona
+                            </a>
+                        </li>
+                        <li class="flex">
+                            <i class="fas fa-envelope mt-1 mr-3 text-primary"></i>
+                            <a href="mailto:info@youthprg.com" class="hover:text-primary transition-colors">info@youthprg.com</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6 pb-2 border-b border-gray-700">Links</h3>
+                    <ul class="space-y-3">
+                        <li><a href="https://linktr.ee/youthbcn" class="hover:text-primary transition-colors">Opportunities</a></li>
+                        <li><a href="https://youthbcn.com/experiences/" class="hover:text-primary transition-colors">Experiences</a></li>
+                        <li><a href="https://youthbcn.com/our-projects/" class="hover:text-primary transition-colors">Our Projects</a></li>
+                        <li><a href="https://youthbcn.com/about-us/" class="hover:text-primary transition-colors">About Us</a></li>
+                        <li><a href="https://youthbcn.com/contact/" class="hover:text-primary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6 pb-2 border-b border-gray-700">Newsletter</h3>
+                    <p class="mb-4">Subscribe to our newsletter for updates on opportunities and projects.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg w-full focus:outline-none text-gray-800">
+                        <button type="submit" class="bg-primary hover:bg-blue-700 px-4 rounded-r-lg">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-800 text-center text-gray-400">
+                <p>© All rights reserved | Youth PRG 2024</p>
             </div>
         </div>
     </footer>
 
+    <!-- Back to top button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white p-3 rounded-full shadow-lg hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script>
-        // Simple mobile menu toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            const nav = document.querySelector('nav');
-            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileCloseBtn = document.getElementById('mobile-close-btn');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
         });
         
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
+        mobileCloseBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target) && mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Back to top button
+        const backToTopBtn = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.remove('hidden');
+            } else {
+                backToTopBtn.classList.add('hidden');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Form submission (demo)
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            e.target.reset();
         });
     </script>
 </body>
