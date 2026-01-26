@@ -19,6 +19,9 @@
             }
         }
     </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Public+Sans&display=swap" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
         body {
@@ -74,6 +77,19 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        .team-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+        .team-photo {
+            transition: transform 0.3s ease;
+        }
+        .team-card:hover .team-photo {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -92,13 +108,12 @@
 
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <!-- <a href="https://linktr.ee/youthprg_official" class="text-lg font-medium hover:text-primary transition-colors">Apply to our Projects</a> -->
                     <a href="https://linktr.ee/youthprg_official" class="hidden md:block bg-primary hover:bg-[#1c7595] text-white font-medium py-2 px-4 rounded-full transition-colors">
                         Apply to our Projects
                     </a>
-                    <a href="#experiences" class="text-lg font-medium hover:text-primary transition-colors">Experiences</a>
+                    <a href="https://youthprg.com/#experiences" class="text-lg font-medium hover:text-primary transition-colors">Experiences</a>
                     
-                    <a href="#projects" class="text-lg font-medium hover:text-primary transition-colors">Projects</a>
+                    <a href="https://youthprg.com/#projects" class="text-lg font-medium hover:text-primary transition-colors">Projects</a>
                     
                     <div class="relative dropdown">
                         <a href="#" class="text-lg font-medium hover:text-primary transition-colors flex items-center">
@@ -110,7 +125,7 @@
                         </div>
                     </div>
                     
-                    <a href="#contact" class="text-lg font-medium hover:text-primary transition-colors">Contact</a>
+                    <a href="https://youthprg.com/#contact" class="text-lg font-medium hover:text-primary transition-colors">Contact</a>
                 </div>
 
                 <!-- Mobile menu button -->
@@ -131,20 +146,8 @@
         </div>
         
         <div class="space-y-4">
-            <a href="https://linktr.ee/youthprg_official" class="block text-lg font-medium py-2 hover:text-primary">Opportunities</a>
-            <a href="index.html#experiences" class="block text-lg font-medium py-2 hover:text-primary">Experiences</a>
-            <a href="index.html#projects" class="block text-lg font-medium py-2 hover:text-primary">Projects</a>
-            
-            <!-- <div class="mb-2">
-                <a href="#" class="block text-lg font-medium py-2 hover:text-primary flex justify-between items-center">
-                    Projects <i class="fas fa-chevron-down"></i>
-                </a>
-                <div class="pl-4 mt-2 space-y-2">
-                    <a href="#our-projects" class="block hover:text-primary">Our Projects</a>
-                    <a href="#erasmus-projects" class="block hover:text-primary">Erasmus+ Projects</a>
-                    <a href="#esc-projects" class="block hover:text-primary">ESC Projects</a>
-                </div>
-            </div> -->
+            <a href="https://youthprg.com/#experiences" class="block text-lg font-medium py-2 hover:text-primary">Experiences</a>
+            <a href="https://youthprg.com/#projects" class="block text-lg font-medium py-2 hover:text-primary">Projects</a>
             
             <div class="mb-2">
                 <a href="#" class="block text-lg font-medium py-2 hover:text-primary flex justify-between items-center">
@@ -156,17 +159,9 @@
                 </div>
             </div>
             
-            <a href="index.html#contact" class="block text-lg font-medium py-2 hover:text-primary">Contact</a>
+            <a href="https://youthprg.com/#contact" class="block text-lg font-medium py-2 hover:text-primary">Contact</a>
             
-            <!-- <div class="pt-4 flex items-center space-x-3">
-                <a href="https://youthprg.com/es/" class="hover:opacity-75 transition-opacity">
-                    <img src="https://youthbcn.com/wp-content/plugins/translatepress-multilingual/assets/images/flags/es_ES.png" alt="Spanish" class="w-6 h-auto">
-                </a>
-                <a href="https://youthprg.com/" class="hover:opacity-75 transition-opacity">
-                    <img src="https://youthbcn.com/wp-content/plugins/translatepress-multilingual/assets/images/flags/en_GB.png" alt="English" class="w-6 h-auto">
-                </a>
-            </div> -->
-            
+            <a href="https://linktr.ee/youthprg_official" class="block text-lg font-medium py-2 hover:text-primary">Apply to our Projects</a>
             <a href="https://linktr.ee/youthprg_official" class="mt-4 block w-full bg-primary hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-full text-center transition-colors">
                 Apply to our Projects
             </a>
@@ -175,26 +170,35 @@
 
     <!-- Main Content -->
     <main id="content">
-
+        <!-- Hero Section (matching main page style) -->
+        <section class="relative py-20 md:py-32 overflow-hidden bg-gray-900 text-white hero-pattern">
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="max-w-3xl text-center mx-auto">
+                    <h2 class="md:text-4xl mb-2 whitespace-nowrap" style="font-family: 'Anton'">
+                        About Youth PRG
+                    </h2>
+                    <svg class="w-[48rem] h-6 mx-auto mb-8" viewBox="0 0 400 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 10 Q50 4, 100 10 T200 10 T300 10 T400 10" 
+                            stroke="white" 
+                            stroke-width="2.5" 
+                            stroke-linecap="round"/>
+                    </svg>
+                    <p class="mb-10 mx-auto" style="font-family: 'Public Sans'">
+                        Empowering young people through international experiences and opportunities.
+                    </p>
+                </div>
+            </div>
+        </section>
 
         <!-- About Section -->
         <section class="py-20 bg-white">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16">
-                    <h2 class="md:text-4xl mb-2 whitespace-nowrap" style="font-family: 'Anton'">
-                        About Youth PRG
-                    </h2>
-                    <!-- <h2 class="text-3xl md:text-4xl font-bold mb-4">Youth PRG</h2> -->
-                    <svg class="w-[48rem] h-6 mx-auto mb-8" viewBox="0 0 400 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0 10 Q50 4, 100 10 T200 10 T300 10 T400 10" 
-                            stroke="black" 
-                            stroke-width="2.5" 
-                            stroke-linecap="round"/>
-                    </svg>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">More about us</h2>
+                    <div class="w-20 h-1 bg-gradient-to-r from-primary to-orange-500 mx-auto"></div>
                 </div>
                 
                 <div class="max-w-4xl mx-auto">
-                    <h3 class="text-2xl font-bold mb-6">More about us</h3>
                     <p class="text-gray-600 mb-6">
                         Our core mission is to empower young individuals primarily in AI literacy, digital literacy, entrepreneurship/employability, media literacy sustainability and healthy lifestyle. Our staff possess considerable expertise and practical know-how in these areas, having actively contributed to the implementation of numerous KA1 and KA2 projects focused on these critical topics.
                     </p>
@@ -208,7 +212,7 @@
             </div>
         </section>
 
-        <!-- Team Section -->
+        <!-- Team Section - 3 Column Layout -->
         <section class="py-20 bg-gray-50">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16">
@@ -216,29 +220,60 @@
                     <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-orange-500 mx-auto"></div>
                 </div>
                 
-                <div class="max-w-4xl mx-auto space-y-12">
-                    <div class="bg-white p-8 rounded-xl shadow-lg">
-                        <h3 class="text-xl font-bold mb-4">Martin Lukáč, President</h3>
-                        <p class="text-gray-600">
-                            Martin Lukáč, our President, is a seasoned veteran in the realm of Erasmus+ projects, having participated in over 40 KA1 and KA2 projects. He possesses extensive experience as an educator and facilitator. Martin is an expert in the fields of AI, entrepreneurship/employability, and media literacy. His background in consulting and AI makes him a valuable partner for effective project implementation and robust capacity-building initiatives.
-                        </p>
+                <!-- Team Grid - 3 Columns -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
+                    <!-- Martin Lukáč -->
+                    <div class="team-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="relative overflow-hidden">
+                            <img src="https://via.placeholder.com/400x400/2596be/ffffff?text=Martin+L." alt="Martin Lukáč" class="team-photo w-full h-64 object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-primary">Martin Lukáč</h3>
+                            <p class="text-accent font-medium mb-4">President</p>
+                            <p class="text-gray-600 text-sm">
+                                A seasoned veteran in Erasmus+ projects, having participated in over 40 KA1 and KA2 projects. Expert in AI, entrepreneurship/employability, and media literacy.
+                            </p>
+                        </div>
                     </div>
                     
-                    <div class="bg-white p-8 rounded-xl shadow-lg">
-                        <h3 class="text-xl font-bold mb-4">Dominika Honešová, Project Manager</h3>
-                        <p class="text-gray-600">
-                            Dominika Honešová has participated in over 20 Erasmus+ projects, and primarily serves as our dedicated project manager and resident sustainability expert. With a strong background in grant writing, Dominika excels at developing comprehensive project proposals designed for maximum positive impact. She also possesses expertise in social media management, a valuable skill that further enhances project implementation and ensures effective communication and dissemination of results.
-                        </p>
+                    <!-- Dominika Honešová -->
+                    <div class="team-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="relative overflow-hidden">
+                            <img src="https://via.placeholder.com/400x400/f97316/ffffff?text=Dominika+H." alt="Dominika Honešová" class="team-photo w-full h-64 object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-primary">Dominika Honešová</h3>
+                            <p class="text-accent font-medium mb-4">Project Manager</p>
+                            <p class="text-gray-600 text-sm">
+                                Participated in over 20 Erasmus+ projects. Dedicated project manager and sustainability expert with strong background in grant writing and social media management.
+                            </p>
+                        </div>
                     </div>
                     
-                    <div class="bg-white p-8 rounded-xl shadow-lg">
-                        <h3 class="text-xl font-bold mb-4">David Čechák, Facilitator</h3>
-                        <p class="text-gray-600">
-                            David Čechák, is our primary facilitator, and he brings expertise in digital skills, healthy lifestyle and AI. He is an experienced facilitator who has led numerous projects on various topics, ensuring engaging and effective learning environments. David's background as a web developer is crucial for the successful dissemination of project results and maintaining a robust digital presence, significantly contributing to the lasting impact and reach of our initiatives.
-                        </p>
+                    <!-- David Čechák -->
+                    <div class="team-card bg-white rounded-xl shadow-lg overflow-hidden">
+                        <div class="relative overflow-hidden">
+                            <img src="https://via.placeholder.com/400x400/0ea5e9/ffffff?text=David+%C4%8C." alt="David Čechák" class="team-photo w-full h-64 object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-primary">David Čechák</h3>
+                            <p class="text-accent font-medium mb-4">Facilitator</p>
+                            <p class="text-gray-600 text-sm">
+                                Primary facilitator with expertise in digital skills, healthy lifestyle and AI. Experienced in leading numerous projects and web development.
+                            </p>
+                        </div>
                     </div>
-                    
-                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                </div>
+                
+                <!-- Volunteers Section -->
+                <div class="max-w-4xl mx-auto">
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                        <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-users text-white text-2xl"></i>
+                        </div>
                         <h3 class="text-xl font-bold mb-4">Volunteers</h3>
                         <p class="text-gray-600">
                             Beyond our core team, Youth Prague z.s. benefits significantly from a dedicated group of active volunteers. These individuals contribute their time and diverse skills to support various aspects of our projects, from logistical coordination and event support to content creation and outreach. Their commitment amplifies our operational capacity and extends our reach, playing a vital role in the successful execution of our activities and enhancing our overall impact within the community.
@@ -265,18 +300,10 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <!-- Footer -->
+    <!-- Footer (matching main page) -->
     <footer class="bg-gray-900 text-white pt-16 pb-8">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-                <div>
-                    <a href="http://youthprg.com/" class="mb-6 inline-block">
-                        <img src="https://ugc.production.linktr.ee/4b92df9a-8866-4d4a-b5b0-dfb6cae1f877_N-vrh-bez-n-zvu--1-.png?io=true&size=avatar-v3_0" alt="Youth PRG" class="h-16 mx-auto">
-                    </a>
-                    
-                </div>
-                
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                 <div>
                     <h3 class="text-xl font-bold mb-6 pb-2 border-b border-gray-700 text-center">Contact</h3>
                     <ul class="space-y-4 text-center">
@@ -300,11 +327,10 @@
                 <div>
                     <h3 class="text-xl font-bold mb-6 pb-2 border-b border-gray-700 text-center">Links</h3>
                     <ul class="space-y-3 text-center">
-                        <li><a href="#experiences" class="hover:text-primary transition-colors">Experiences</a></li>
-                        <li><a href="#projects" class="hover:text-primary transition-colors">Projects</a></li>
+                        <li><a href="https://youthprg.com/#experiences" class="hover:text-primary transition-colors">Experiences</a></li>
+                        <li><a href="https://youthprg.com/#projects" class="hover:text-primary transition-colors">Projects</a></li>
                         <li><a href="about.html" class="hover:text-primary transition-colors">About Us</a></li>
-                        <!-- <li><a href="https://youthhubnet.com/" class="hover:text-primary transition-colors">Youth Hub</a></li> -->
-                        <li><a href="#contact" class="hover:text-primary transition-colors">Contact</a></li>
+                        <li><a href="https://youthprg.com/#contact" class="hover:text-primary transition-colors">Contact</a></li>
                     </ul>
                 </div>
                 
@@ -320,8 +346,11 @@
                 </div>
             </div>
             
-            <div class="pt-8 border-t border-gray-800 text-center text-gray-400">
-                <p>© All rights reserved | Youth PRG 2026</p>
+            <div class="pt-8 border-t border-gray-800 text-center text-gray-400 flex flex-col items-center">
+                <p class="mb-4">© All rights reserved | Youth PRG 2026</p>
+                <a href="http://youthprg.com/" class="inline-block">
+                    <img src="https://raw.githubusercontent.com/davidcechak/youthprg_pages/refs/heads/main/white_to_black_blue_lightened.png" alt="Youth PRG" class="h-16 mx-auto">
+                </a>
             </div>
         </div>
     </footer>
@@ -373,9 +402,10 @@
         // Form submission (demo)
         document.querySelector('form').addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
+            alert('Thank you for subscribing! We will keep you updated.');
             e.target.reset();
         });
+        
         const dropdowns = document.querySelectorAll('.dropdown');
 
         dropdowns.forEach(dropdown => {
@@ -396,7 +426,7 @@
                 if (menu) {
                     timeoutId = setTimeout(() => {
                         menu.style.display = 'none';
-                    }, 100); // Small delay to allow moving to submenu
+                    }, 100);
                 }
             });
         });
