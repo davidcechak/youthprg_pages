@@ -90,7 +90,7 @@
             <nav class="flex items-center justify-between py-2">
                 <!-- Logo -->
                 <a href="https://youthprg.com/" class="flex items-center">
-                    <img src="https://ugc.production.linktr.ee/4b92df9a-8866-4d4a-b5b0-dfb6cae1f877_N-vrh-bez-n-zvu--1-.png?io=true&size=avatar-v3_0" alt="Youth PRG Logo" class="h-30 md:h-36">
+                    <img src="https://ugc.production.linktr.ee/4b92df9a-8866-4d4a-b5b0-dfb6cae1f877_N-vrh-bez-n-zvu--1-.png?io=true&size=avatar-v3_0" alt="Youth PRG Logo" class="h-12 md:h-24">
                 </a>
 
                 <!-- Desktop Navigation -->
@@ -207,25 +207,34 @@
 
                 <div class="instagram-grid">
                     <!-- Instagram post 1 -->
-                    <blockquote class="instagram-media" 
-                                data-instgrm-captioned 
-                                data-instgrm-permalink="https://www.instagram.com/p/DKWmybFNDoz/" 
-                                data-instgrm-version="14">
-                    </blockquote>
+                    <div class="instagram-wrapper">
+                        <blockquote class="instagram-media" 
+                                    data-instgrm-captioned 
+                                    data-instgrm-permalink="https://www.instagram.com/p/DKWmybFNDoz/" 
+                                    data-instgrm-version="14">
+                        </blockquote>
+                        <div class="instagram-fade"></div>
+                    </div>
 
                     <!-- Instagram post 2 -->
-                    <blockquote class="instagram-media" 
-                                data-instgrm-captioned 
-                                data-instgrm-permalink="https://www.instagram.com/p/DQW8RwbDOhF/" 
-                                data-instgrm-version="14">
-                    </blockquote>
+                    <div class="instagram-wrapper">
+                        <blockquote class="instagram-media" 
+                                    data-instgrm-captioned 
+                                    data-instgrm-permalink="https://www.instagram.com/p/DQW8RwbDOhF/" 
+                                    data-instgrm-version="14">
+                        </blockquote>
+                        <div class="instagram-fade"></div>
+                    </div>
                     
                     <!-- Instagram post 3 -->
-                    <blockquote class="instagram-media" 
-                                data-instgrm-captioned 
-                                data-instgrm-permalink="https://www.instagram.com/p/DK6uLD5N9YG/" 
-                                data-instgrm-version="14">
-                    </blockquote>
+                    <div class="instagram-wrapper">
+                        <blockquote class="instagram-media" 
+                                    data-instgrm-captioned 
+                                    data-instgrm-permalink="https://www.instagram.com/p/DK6uLD5N9YG/" 
+                                    data-instgrm-version="14">
+                        </blockquote>
+                        <div class="instagram-fade"></div>
+                    </div>
                 </div>
 
                 <!-- Add this CSS -->
@@ -235,7 +244,29 @@
                     grid-template-columns: repeat(3, 1fr);
                     gap: 20px;
                     max-width: 1200px;
-                    margin: 0 auto;
+                    margin: 0 auto 2rem auto;
+                }
+
+                /* Wrapper with fixed height and fade */
+                .instagram-wrapper {
+                    position: relative;
+                    height: 500px;
+                    overflow: hidden;
+                    border-radius: 12px;
+                    background: #fff;
+                    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+                }
+
+                /* Fade gradient at bottom */
+                .instagram-fade {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    height: 80px;
+                    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+                    pointer-events: none;
+                    z-index: 10;
                 }
 
                 /* Responsive design */
@@ -243,6 +274,9 @@
                     .instagram-grid {
                         grid-template-columns: 1fr;
                         gap: 15px;
+                    }
+                    .instagram-wrapper {
+                        height: 450px;
                     }
                 }
 
@@ -256,6 +290,13 @@
                 .instagram-media {
                     max-width: 100% !important;
                     min-width: 0 !important;
+                    width: 100% !important;
+                    margin: 0 !important;
+                }
+
+                /* Style the iframe once loaded */
+                .instagram-wrapper iframe {
+                    max-width: 100% !important;
                     width: 100% !important;
                 }
                 </style>
