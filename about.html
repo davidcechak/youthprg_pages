@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Youth PRG</title>
+    <title>YOUTH PRG - Youth PRG</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
@@ -30,8 +30,8 @@
         }
         .hero-pattern {
             background: 
-                linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-                url('https://www.agoda.com/wp-content/uploads/2024/05/Featured-image-Prague-Castle-with-St.-Vitus-Cathedral-Czech-Republic-1244x700.jpg');
+                linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                url('https://raw.githubusercontent.com/davidcechak/youthprg_pages/refs/heads/main/welcome_background.png');
             background-color: #2596be;
             background-size: cover, cover;
             background-position: center, center;
@@ -77,19 +77,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .team-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .team-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-        }
-        .team-photo {
-            transition: transform 0.3s ease;
-        }
-        .team-card:hover .team-photo {
-            transform: scale(1.05);
-        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -113,7 +100,7 @@
                     </a>
                     <a href="https://youthprg.com/#experiences" class="text-lg font-medium hover:text-primary transition-colors">Experiences</a>
                     
-                    <a href="https://youthprg.com/#projects" class="text-lg font-medium hover:text-primary transition-colors">Projects</a>
+                    <a href="https://youthprg.com/#getinvolved" class="text-lg font-medium hover:text-primary transition-colors">Get Involved</a>
                     
                     <div class="relative dropdown">
                         <a href="#" class="text-lg font-medium hover:text-primary transition-colors flex items-center">
@@ -147,7 +134,7 @@
         
         <div class="space-y-4">
             <a href="https://youthprg.com/#experiences" class="block text-lg font-medium py-2 hover:text-primary">Experiences</a>
-            <a href="https://youthprg.com/#projects" class="block text-lg font-medium py-2 hover:text-primary">Projects</a>
+            <a href="https://youthprg.com/#getinvolved" class="block text-lg font-medium py-2 hover:text-primary">Get Involved</a>
             
             <div class="mb-2">
                 <a href="#" class="block text-lg font-medium py-2 hover:text-primary flex justify-between items-center">
@@ -170,12 +157,12 @@
 
     <!-- Main Content -->
     <main id="content">
-        <!-- Hero Section (matching main page style) -->
+        <!-- Hero Section -->
         <section class="relative py-20 md:py-32 overflow-hidden bg-gray-900 text-white hero-pattern">
             <div class="container mx-auto px-4 relative z-10">
                 <div class="max-w-3xl text-center mx-auto">
                     <h2 class="md:text-4xl mb-2 whitespace-nowrap" style="font-family: 'Anton'">
-                        About Youth PRG
+                        Your bridge to international opportunities
                     </h2>
                     <svg class="w-[48rem] h-6 mx-auto mb-8" viewBox="0 0 400 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 10 Q50 4, 100 10 T200 10 T300 10 T400 10" 
@@ -184,124 +171,373 @@
                             stroke-linecap="round"/>
                     </svg>
                     <p class="mb-10 mx-auto" style="font-family: 'Public Sans'">
-                        Empowering young people through international experiences and opportunities.
+                        Youth PRG connects you with life-changing Erasmus+ experiences.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- About Section -->
-        <section class="py-20 bg-white">
+        <!-- Mission Section -->
+        <section class="py-20 bg-gradient-to-r from-blue-50 to-cyan-50">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">More about us</h2>
-                    <div class="w-20 h-1 bg-gradient-to-r from-primary to-orange-500 mx-auto"></div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4"> We enable people to access international opportunities through:</h2>
                 </div>
                 
-                <div class="max-w-4xl mx-auto">
-                    <p class="text-gray-600 mb-6">
-                        Our core mission is to empower young individuals primarily in AI literacy, digital literacy, entrepreneurship/employability, media literacy sustainability and healthy lifestyle. Our staff possess considerable expertise and practical know-how in these areas, having actively contributed to the implementation of numerous KA1 and KA2 projects focused on these critical topics.
-                    </p>
-                    <p class="text-gray-600 mb-6">
-                        We aim to achieve both local impact through the implementation of mobilities and other activities within the Olomouc region, while also operating on a European scale. This broader reach is facilitated by our robust network of international partnerships, including our significant collaboration as a member of Youth HUB, which amplifies our collective efforts.
-                    </p>
-                    <p class="text-gray-600 mb-6">
-                        Our primary target group is youth aged 18-25, with a particular focus on marginalized youth. Our initiatives are designed to address their specific needs and challenges through targeted educational programs and activities, and to fill the gap in important life skills that traditional education fails to provide.
-                    </p>
+                <div class="flex flex-wrap justify-center gap-16">
+                    <a href="#erasmus-projects" class="flex flex-col items-center group">
+                        <img src="https://youthbcn.com/wp-content/uploads/2021/12/1280px-Erasmus_Logo.svg-1024x294.png" alt="Erasmus+" class="h-20 w-auto object-contain mb-4">
+                    </a>
+                    
+                    <a href="#erasmus-projects" class="flex flex-col items-center group">
+                        <img src="https://s3.eu-central-1.amazonaws.com/uploads.mangoweb.org/shared-prod/visegradfund.org/uploads/2024/05/vf-logotype-black.png" alt="Visegrad Fund" class="h-20 w-auto object-contain mb-4">
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- Team Section - 3 Column Layout -->
-        <section class="py-20 bg-gray-50">
+        <!-- Experiences Section -->
+        <section id="experiences" class="py-20 bg-white">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Our team</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Experiences</h2>
+                    <p class="text-xl text-gray-600 mb-8">Discover opportunities and the stories that grow from them.</p>
+                    <div class="w-20 h-1 bg-gradient-to-r from-primary to-orange-500 mx-auto mb-12"></div>
+                </div>
+
+                <div class="instagram-grid">
+                    <!-- Instagram post 1 -->
+                    <div class="instagram-wrapper">
+                        <blockquote class="instagram-media" 
+                                    data-instgrm-captioned 
+                                    data-instgrm-permalink="https://www.instagram.com/p/DKWmybFNDoz/" 
+                                    data-instgrm-version="14">
+                        </blockquote>
+                        <div class="instagram-fade"></div>
+                    </div>
+
+                    <!-- Instagram post 2 -->
+                    <div class="instagram-wrapper">
+                        <blockquote class="instagram-media" 
+                                    data-instgrm-captioned 
+                                    data-instgrm-permalink="https://www.instagram.com/p/DQW8RwbDOhF/" 
+                                    data-instgrm-version="14">
+                        </blockquote>
+                        <div class="instagram-fade"></div>
+                    </div>
+                    
+                    <!-- Instagram post 3 -->
+                    <div class="instagram-wrapper">
+                        <blockquote class="instagram-media" 
+                                    data-instgrm-captioned 
+                                    data-instgrm-permalink="https://www.instagram.com/p/DK6uLD5N9YG/" 
+                                    data-instgrm-version="14">
+                        </blockquote>
+                        <div class="instagram-fade"></div>
+                    </div>
+                </div>
+
+                <!-- Add this CSS -->
+                <style>
+                .instagram-grid {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 20px;
+                    max-width: 1200px;
+                    margin: 0 auto 2rem auto;
+                }
+
+                /* Wrapper with fixed height and fade */
+                .instagram-wrapper {
+                    position: relative;
+                    height: 500px;
+                    overflow: hidden;
+                    border-radius: 12px;
+                    background: #fff;
+                    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+                }
+
+                /* Fade gradient at bottom */
+                .instagram-fade {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    height: 80px;
+                    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+                    pointer-events: none;
+                    z-index: 10;
+                }
+
+                /* Responsive design */
+                @media (max-width: 768px) {
+                    .instagram-grid {
+                        grid-template-columns: 1fr;
+                        gap: 15px;
+                    }
+                    .instagram-wrapper {
+                        height: 450px;
+                    }
+                }
+
+                @media (max-width: 1024px) and (min-width: 769px) {
+                    .instagram-grid {
+                        grid-template-columns: repeat(2, 1fr);
+                    }
+                }
+
+                /* Override Instagram's default max-width */
+                .instagram-media {
+                    max-width: 100% !important;
+                    min-width: 0 !important;
+                    width: 100% !important;
+                    margin: 0 !important;
+                }
+
+                /* Style the iframe once loaded */
+                .instagram-wrapper iframe {
+                    max-width: 100% !important;
+                    width: 100% !important;
+                }
+                </style>
+                
+                <div class="text-center">
+                    <a href="https://www.instagram.com/youthprg_official/" class="inline-block bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-bold py-3 px-8 rounded-full transition-all transform hover:scale-105">
+                        Follow Youth PRG
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- About Section -->
+        <section id="about-us" class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">About us</h2>
                     <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-orange-500 mx-auto"></div>
                 </div>
                 
-                <!-- Team Grid - 3 Columns -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
-                    <!-- Martin Lukáč -->
-                    <div class="team-card bg-white rounded-xl shadow-lg overflow-hidden">
-                        <div class="relative overflow-hidden">
-                            <img src="https://via.placeholder.com/400x400/2596be/ffffff?text=Martin+L." alt="Martin Lukáč" class="team-photo w-full h-64 object-cover">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                        </div>
-                        <div class="p-6 text-center">
-                            <h3 class="text-xl font-bold mb-2 text-primary">Martin Lukáč</h3>
-                            <p class="text-accent font-medium mb-4">President</p>
-                            <p class="text-gray-600 text-sm">
-                                A seasoned veteran in Erasmus+ projects, having participated in over 40 KA1 and KA2 projects. 
-                                <br> Expert in AI, entrepreneurship/employability, and media literacy.
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <!-- Dominika Honešová -->
-                    <div class="team-card bg-white rounded-xl shadow-lg overflow-hidden">
-                        <div class="relative overflow-hidden">
-                            <img src="https://via.placeholder.com/400x400/f97316/ffffff?text=Dominika+H." alt="Dominika Honešová" class="team-photo w-full h-64 object-cover">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                        </div>
-                        <div class="p-6 text-center">
-                            <h3 class="text-xl font-bold mb-2 text-primary">Dominika Honešová</h3>
-                            <p class="text-accent font-medium mb-4">Project Manager</p>
-                            <p class="text-gray-600 text-sm">
-                                Participated in over 20 Erasmus+ projects. <br>Dedicated project manager and sustainability expert with strong background in grant writing and social media management.
-                            </p>
-                        </div>
-                    </div>
-                    
-                    <!-- David Čechák -->
-                    <div class="team-card bg-white rounded-xl shadow-lg overflow-hidden">
-                        <div class="relative overflow-hidden">
-                            <img src="https://via.placeholder.com/400x400/0ea5e9/ffffff?text=David+%C4%8C." alt="David Čechák" class="team-photo w-full h-64 object-cover">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                        </div>
-                        <div class="p-6 text-center">
-                            <h3 class="text-xl font-bold mb-2 text-primary">David Čechák</h3>
-                            <p class="text-accent font-medium mb-4">Facilitator</p>
-                            <p class="text-gray-600 text-sm">
-                                Primary facilitator with expertise in digital skills, healthy lifestyle and AI. <br>Experienced in leading numerous projects and web development.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Volunteers Section -->
-                <div class="max-w-4xl mx-auto">
-                    <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center p-6 bg-blue-50 rounded-xl">
                         <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-globe-europe text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Our Projects</h3>
+                        <p class="text-gray-600">We create and implement international projects within Erasmus+, including youth exchanges, training courses, and cooperation projects such as small-scale and cooperation partnerships. We also collaborate on regional initiatives, including Visegrad Fund programmes.</p>
+                    </div>
+                    
+                    <div class="text-center p-6 bg-orange-50 rounded-xl">
+                        <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
                             <i class="fas fa-users text-white text-2xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-4">Volunteers</h3>
-                        <p class="text-gray-600">
-                            Beyond our core team, Youth Prague z.s. benefits significantly from a dedicated group of active volunteers. These individuals contribute their time and diverse skills to support various aspects of our projects, from logistical coordination and event support to content creation and outreach. Their commitment amplifies our operational capacity and extends our reach, playing a vital role in the successful execution of our activities and enhancing our overall impact within the community.
-                        </p>
+                        <h3 class="text-xl font-bold mb-3">Who We Are</h3>
+                        <p class="text-gray-600">Established in 2023, Youth PRG is a youth-led organisation helping young people grow through Erasmus+ opportunities and international learning experiences.</p>
+                    </div>
+                    
+                    <div class="text-center p-6 bg-cyan-50 rounded-xl">
+                        <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-hands-helping text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Join Us</h3>
+                        <p class="text-gray-600">Become part of our team! We welcome motivated volunteers who want to support our work, help with projects and contribute to meaningful youth initiatives.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Youth Hub Section -->
-        <section class="py-20 bg-white">
+        <!-- Advisory Section -->
+        <!-- <section class="py-20 bg-[#2596be] text-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Advisory & consultancy + partnership</h2>
+                    <p class="text-xl max-w-3xl mx-auto">We offer advisory and consultancy services for the development and creation of projects.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-1 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-graduation-cap text-3xl mr-4 text-cyan-300"></i>
+                            <h3 class="text-xl font-bold">Erasmus+</h3>
+                        </div>
+                        <p>We have experience in designing, creating and implementing youth mobility projects inside KA1 & KA2.</p>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-10">
+                    <a href="https://youthprg.com/#contact" class="inline-block bg-white text-blue-900 hover:bg-gray-100 font-bold py-3 px-8 rounded-full transition-colors">
+                        Contact us for more info
+                    </a>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- Get Involved Section -->
+        <section id="getinvolved" class="py-20 bg-gray-50">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Youth HUB</h2>
-                    <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-orange-500 mx-auto mb-8"></div>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                        We are proud members of Youth HUB, a network of youth organizations working together to create meaningful opportunities for young people across Europe.
-                    </p>
-                    <a href="https://youthhubnet.com/" class="inline-block mt-8 bg-primary hover:bg-[#1c7595] text-white font-bold py-3 px-8 rounded-full transition-colors">
-                        Visit Youth HUB Website
-                    </a>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Get involved</h2>
+                    <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-orange-500 mx-auto mt-4"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-search text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Search for a Project</h3>
+                        <p class="text-gray-600 mb-6">We regularly offer opportunities for young people and youth workers to join Erasmus+ mobilities. Explore current openings and find a project that fits your interests.</p>
+                        <a href="https://linktr.ee/youthprg_official" class="inline-block bg-primary hover:bg-[#1c7595] text-white font-medium py-2 px-6 rounded-full transition-colors">
+                            Start searching
+                        </a>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                        <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-hands-helping text-orange-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Get Support from Professionals</h3>
+                        <p class="text-gray-600 mb-6">Have an idea for an Erasmus+ project? We support young people in shaping their ideas, developing strong project concepts, and turning them into solid proposals, so their ideas can become real projects.</p>
+                        <a href="https://youthprg.com/#contact" class="inline-block bg-accent hover:bg-orange-600 text-white font-medium py-2 px-6 rounded-full transition-colors">
+                            Ask for help
+                        </a>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-xl shadow-lg text-center">
+                        <div class="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-handshake text-cyan-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">Partner with Us</h3>
+                        <p class="text-gray-600 mb-6">Are you an organisation interested in partnering with us? Whether you want to join as a KA-1 partner or cooperate on a KA2 partnership, we'd be happy to connect.</p>
+                        <a href="https://youthprg.com/#contact" class="inline-block bg-secondary hover:bg-[#1c7595] text-white font-medium py-2 px-6 rounded-full transition-colors">
+                            Join us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 shadow-lg">
+                    <div class="text-center mb-10">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Stay in touch</h2>
+                        <p class="text-xl text-gray-600">Have a question or an idea? Write to us and we'll reply as soon as we can.</p>
+                    </div>
+                    
+                    <!-- <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block mb-2 font-medium">Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div>
+                                <label for="email" class="block mb-2 font-medium">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block mb-2 font-medium">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block mb-2 font-medium">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                        </div>
+                        
+                        <div class="text-center">
+                            <button type="submit" class="bg-primary hover:bg-[#1c7595] text-white font-bold py-4 px-8 rounded-full text-lg transition-colors">
+                                SEND
+                            </button>
+                        </div>
+                    </form> -->
+                    <form
+                    action="https://formspree.io/f/xlgnprgz"
+                    method="POST"
+                    class="space-y-6"
+                    >
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                            <label for="name" class="block mb-2 font-medium">Name</label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                required
+                                class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                            >
+                            </div>
+
+                            <div>
+                            <label for="email" class="block mb-2 font-medium">Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                required
+                                class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                            >
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="subject" class="block mb-2 font-medium">Subject</label>
+                            <input
+                            type="text"
+                            id="subject"
+                            name="subject"
+                            required
+                            class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                            >
+                        </div>
+
+                        <div>
+                            <label for="message" class="block mb-2 font-medium">Message</label>
+                            <textarea
+                            id="message"
+                            name="message"
+                            rows="5"
+                            required
+                            class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                            ></textarea>
+                        </div>
+
+                        <!-- 🔒 Spam protection -->
+                        <input type="text" name="_gotcha" style="display:none">
+
+                        <!-- ✉️ Custom email subject -->
+                        <input
+                            type="hidden"
+                            name="_subject"
+                            value="New Message from YouthPRG Website"
+                        >
+
+                        <!-- 🔁 Optional redirect after submit -->
+                        <input
+                            type="hidden"
+                            name="_redirect"
+                            value="https://youthprg.com/thank-you"
+                        >
+
+                        <div class="text-center">
+                            <button
+                            type="submit"
+                            class="bg-primary hover:bg-[#1c7595] text-white font-bold py-4 px-8 rounded-full text-lg transition-colors"
+                            >
+                            SEND
+                            </button>
+                        </div>
+                    </form>
+
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer (matching main page) -->
+    <!-- Footer -->
     <footer class="bg-gray-900 text-white pt-16 pb-8">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
@@ -325,7 +561,7 @@
                     <h3 class="text-xl font-bold mb-6 pb-2 border-b border-gray-700 text-center">Links</h3>
                     <ul class="space-y-3 text-center">
                         <li><a href="https://youthprg.com/#experiences" class="hover:text-primary transition-colors">Experiences</a></li>
-                        <li><a href="https://youthprg.com/#projects" class="hover:text-primary transition-colors">Projects</a></li>
+                        <li><a href="https://youthprg.com/#getinvolved" class="hover:text-primary transition-colors">Get Involved</a></li>
                         <li><a href="about.html" class="hover:text-primary transition-colors">About Us</a></li>
                         <li><a href="https://youthprg.com/#contact" class="hover:text-primary transition-colors">Contact</a></li>
                     </ul>
@@ -346,11 +582,12 @@
             <div class="pt-8 border-t border-gray-800 text-center text-gray-400 flex flex-col items-center">
                 <p class="mb-4">© All rights reserved | Youth PRG 2026</p>
                 <a href="http://youthprg.com/" class="inline-block">
-                    <img src="https://raw.githubusercontent.com/davidcechak/youthprg_pages/refs/heads/main/white_to_black_blue_lightened.png" alt="Youth PRG" class="h-16 mx-auto">
+                    <img src="https://raw.githubusercontent.com/davidcechak/youthprg_pages/refs/heads/main/youth_prg_logo_dark.png" alt="Youth PRG" class="h-16 mx-auto">
                 </a>
             </div>
         </div>
     </footer>
+
 
     <!-- Back to top button -->
     <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary text-white p-3 rounded-full shadow-lg hidden">
@@ -397,12 +634,11 @@
         });
         
         // Form submission (demo)
-        document.querySelector('form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for subscribing! We will keep you updated.');
-            e.target.reset();
-        });
-        
+        // document.querySelector('form').addEventListener('submit', (e) => {
+        //     e.preventDefault();
+        //     alert('Thank you for your message! We will get back to you soon.');
+        //     e.target.reset();
+        // });
         const dropdowns = document.querySelectorAll('.dropdown');
 
         dropdowns.forEach(dropdown => {
@@ -423,10 +659,11 @@
                 if (menu) {
                     timeoutId = setTimeout(() => {
                         menu.style.display = 'none';
-                    }, 100);
+                    }, 100); // Small delay to allow moving to submenu
                 }
             });
         });
     </script>
+    <script async src="//www.instagram.com/embed.js"></script>
 </body>
 </html>
