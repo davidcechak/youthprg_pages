@@ -334,11 +334,20 @@
                 <div>
                     <h3 class="text-xl font-bold mb-6 pb-2 border-b border-gray-700 text-center">Follow our journey</h3>
                     <p class="mb-4 text-center">Stay updated on upcoming opportunities and new projects — subscribe to our newsletter.</p>
-                    <form class="flex max-w-md mx-auto">
-                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg w-full focus:outline-none text-gray-800">
-                        <button type="submit" class="bg-primary hover:bg-blue-700 px-4 rounded-r-lg">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
+                    <form data-newsletter-form data-form-theme="dark" class="max-w-md mx-auto">
+                        <div class="flex">
+                            <input type="email" name="email" required placeholder="Your email" class="px-4 py-2 rounded-l-lg w-full focus:outline-none text-gray-800">
+                            <button type="submit" class="bg-primary hover:bg-blue-700 px-4 rounded-r-lg">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+
+                        <!-- 🔒 Spam protection -->
+                        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
+
+                        <p class="mt-3 text-xs text-gray-400 text-center">We use your email only to send occasional YouthPRG updates. No spam, and you can ask us to remove you at any time.</p>
+
+                        <p data-form-status class="mt-3 text-sm" aria-live="polite"></p>
                     </form>
                 </div>
             </div>
@@ -396,13 +405,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
         
-        // Form submission (demo)
-        document.querySelector('form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for subscribing! We will keep you updated.');
-            e.target.reset();
-        });
-        
         const dropdowns = document.querySelectorAll('.dropdown');
 
         dropdowns.forEach(dropdown => {
@@ -428,5 +430,6 @@
             });
         });
     </script>
+    <script src="js/forms.js" defer></script>
 </body>
 </html>
